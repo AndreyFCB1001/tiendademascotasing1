@@ -1,0 +1,224 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #2b3f61;
+    padding: 20px;
+    color: #fff;
+    height: 100vh;
+}
+
+.sidebar h2 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+    color: #d1d5da;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.sidebar ul li a:hover {
+    color: #fff;
+}
+
+.content {
+    flex-grow: 1;
+    background-color: #eef0f5;
+    padding: 20px;
+}
+
+.content h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.breadcrumb {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.breadcrumb a {
+    color: #3bb6e3;
+    text-decoration: none;
+}
+
+.table-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background-color: #f5f5f5;
+}
+
+td a {
+    color: #3bb6e3;
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 0;
+}
+
+.pagination button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background-color: #3bb6e3;
+    color: white;
+    border-color: #3bb6e3;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #3bb6e3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #369ec4;
+}
+
+.logout {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+.logout span {
+    margin-left: 10px;
+}
+
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #2b3f61;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #2b3f61;
+    padding: 20px;
+    color: #fff;
+    height: 1vh;
+}
+
+.menu-item {
+    margin-bottom: 20px;
+}
+
+.menu-item > a {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    background-color: #2b3f61;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.menu-item > a:hover {
+    background-color: #3c4f7b;
+}
+
+.menu-item ul {
+    list-style-type: none;
+    padding-left: 20px;
+    display: none;
+}
+
+.menu-item ul li {
+    margin-top: 10px;
+}
+
+.menu-item ul li a {
+    color: #d1d5da;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.menu-item ul li a:hover {
+    color: #fff;
+}
+
+.menu-item.active ul {
+    display: block;
+}
+
+.icon {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.menu-item.active .icon {
+    transform: rotate(180deg);
+}

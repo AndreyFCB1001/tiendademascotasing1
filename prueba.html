@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Mascotas</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <style>
+        /* Estilos básicos para la tabla */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Información del Animal</h3>
+    <form id="animalForm">
+        <input type="text" id="nombre" placeholder="Nombre" required><br><br>
+        <input type="text" id="examen" placeholder="Examen" required><br><br>
+        <input type="text" id="resultado" placeholder="Resultados" required><br><br>
+        <input type="text" id="fecha" placeholder="Fecha" required><br><br>
+        <button type="submit">Guardar</button>
+    </form>
+
+    <h3>Mascotas</h3>
+    <table id="mascotasTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Mascota</th>
+                <th>Cuidador</th>
+                <th>Fecha de Creación</th>
+                <th>Última Modificación</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Filas de ejemplo -->
+            <tr>
+                <td>108</td>
+                <td>Koros</td>
+                <td>Daniel Orjuela</td>
+                <td>2024/09/02 10:57:46</td>
+                <td>2024/10/02 10:57:46</td>
+                <td><a href="#">Ver</a> | <a href="#">Editar</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        let idCounter = 109; // Contador para ID de mascotas
+
+        // Manejar el envío del formulario
+        document.getElementById('animalForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar recarga de la página
+
+            let nombreMascota = document.getElementById('nombre').value;
+            let cuidador = "Cuidador Genérico"; // Aquí puedes obtener el nombre del cuidador según lo necesites
+            let fechaActual = new Date().toISOString().split('T')[0] + " " + new Date().toLocaleTimeString();
+
+            // Añadir una nueva fila a la tabla
+            let table = document.getElementById('mascotasTable').getElementsByTagName('tbody')[0];
+            let newRow = table.insertRow();
+
+            newRow.innerHTML = `
+                <td>${idCounter++}</td>
+                <td>${nombreMascota}</td>
+                <td>${examen}</td>
+                <td>${resultado}</td>
+                <td>${fechaActual}</td>
+                <td><a href="#">Ver</a> | <a href="#">Editar</a></td>
+            `;
+
+            // Limpiar el formulario después de guardarlo
+            document.getElementById('animalForm').reset();
+
+            // Mostrar alerta de éxito
+            Swal.fire({
+                title: "¡Mascota Guardada!",
+                text: `Se ha añadido ${nombreMascota} a la lista de mascotas.`,
+                icon: "success"
+            });
+        });
+    </script>
+<a href="prueba1.html">kkk</a>
+<a href="pruebalistaexamen.html">listexam</a>
+</body>
+</html>

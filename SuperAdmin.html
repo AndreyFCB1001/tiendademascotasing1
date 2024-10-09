@@ -1,0 +1,174 @@
+<!--
+    
+Interface SUPER ADMINISTRADIR
+
+-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Medimascota - Listado de Mascotas</title>
+        <link rel="stylesheet" href="src/Stilos/SuperAdmin.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+<body>
+
+    <div class="sidebar">
+        <a href="index.html"><img src="src/img/logomedimascota-azul.png" alt=""></a>
+        <!-- <ul>
+            <li><a href="#">Mascotas</a>
+                <ul>
+                    <li><a href="#">Listado de Mascotas</a></li>
+                    <li><a href="#">Crear nueva mascota</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Cuidadores</a>
+                <ul>
+                    <li><a href="#">Listado de Cuidadores</a></li>
+                    <li><a href="#">Crear nuevo Cuidador</a></li>
+                </ul>
+            </li>
+        </ul> -->
+
+     
+
+ 
+        
+            <div class="sidebar">
+                <!-- Menú desplegable para Mascotas -->
+                <div class="menu-item" id="menuMascotas">
+                    <a href="#" onclick="toggleMenu('menuMascotas')">
+                        <span>🐾 Mascotas</span>
+                        <span class="icon">⯆</span>
+                    </a>
+                    <ul>
+                        <li><a href="SuperAdmin.html">Listado de Mascotas</a></li>
+                        <li><a href="SuperAdminCrear.html">Crear nueva mascota</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Menú desplegable para Cuidadores -->
+                <div class="menu-item" id="menuCuidadores">
+                    <a href="#" onclick="toggleMenu('menuCuidadores')">
+                        <span>👤 Cuidadores</span>
+                        <span class="icon">⯆</span>
+                    </a>
+                    <ul>
+                        <li><a href="Listadecuidadores.html">Listado de Cuidadores</a></li>
+                        <li><a href="CrearCuidador.html">Crear nuevo Cuidador</a></li>
+                    </ul>
+                </div>
+            </div>
+        
+            <script>
+                function toggleMenu(menuId) {
+                    var menu = document.getElementById(menuId);
+                    menu.classList.toggle("active");
+                }
+            </script>
+
+
+
+
+        <style>
+            .logout a{
+                text-decoration: none;
+                color: white;
+            }
+        </style>
+
+
+        <div class="logout">
+            <span>🔌</span>
+            <a href="index.html"><span>Cerrar Sesión</span></a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="search-bar">
+            <input type="text" placeholder="🔍 Búsqueda rápida...">
+            <a href="SuperAdminCrear.html"><button>CREAR NUEVA MASCOTA</button></a>
+            <div>
+                  <img src="src/img/image.png" height="50" style="border-radius: 50%;" alt="">
+              </div>
+
+            <!-- <div style="display: flex; justify-content: space-between;">
+                <div style="background-color: #f2f2f2; padding: 8px 16px; border-radius: 24px;">
+                  <span style="color: #999999; font-size: 14px;">
+                    <i class="fas fa-search" style="margin-right: 8px;"></i>
+                    Búsqueda rápida...
+                  </span>
+                </div>
+                <div style="position: relative;">
+                  <i class="fas fa-bell" style="font-size: 20px; color: #333333;"></i>
+                  <span style="position: absolute; top: -5px; right: -5px; background-color: #f08080; color: white; font-size: 12px; border-radius: 50%; padding: 4px 6px;">
+                    3
+                  </span>
+                </div>
+                <div style="background-color: #2962ff; border-radius: 50%; padding: 12px;">
+                  <span style="color: white; font-size: 18px; font-weight: bold;">
+                    <img src="src/img/image.png" height="50" alt="">
+                  </span>
+                </div>
+              </div> -->
+
+
+        </div>
+
+        <div class="breadcrumb">
+            <a href="#">Mascotas</a> > <span>Listado de Mascotas</span>
+        </div>
+
+        <div class="table-container">
+            <h1>Mascotas</h1>
+            <table id="mascotasTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Mascota</th>
+                        <th>Cuidador</th>
+                        <th>Fecha de Creación</th>
+                        <th>Última Modificación</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>108</td>
+                        <td>Koros</td>
+                        <td>Daniel Orjuela</td>
+                        <td>2024/09/02 10:57:46</td>
+                        <td>2024/10/02 10:57:46</td>
+                        <td><a href="#">Ver</a> | <a href="#">Editar</a></td>
+                    </tr>
+                    <tr>
+                        <td>107</td>
+                        <td>Koros</td>
+                        <td>William Dussan</td>
+                        <td>2024/09/02 10:57:46</td>
+                        <td>2024/10/02 10:57:46</td>
+                        <td><a href="#">Ver</a> | <a href="#">Editar</a></td>
+                    </tr>
+                    <!-- Agrega más filas según sea necesario -->
+                </tbody>
+            </table>
+
+            <div class="pagination">
+                <button class="active">1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="SuperAdmin.js"></script>
+
+    
+</body>
+</html>

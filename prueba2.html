@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Mascota</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+<body>
+
+    <h3>Información del Animal</h3>
+    <form id="animalForm">
+        <input type="text" id="nombre" placeholder="Nombre" required><br><br>
+        <input type="text" id="cuidador" placeholder="Cuidador" required><br><br>
+        <button type="submit">Guardar y Ver en Lista</button>
+    </form>
+
+    <script>
+        document.getElementById('animalForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar recargar la página
+
+            // Capturar los datos del formulario
+            const nombre = document.getElementById('nombre').value;
+            const cuidador = document.getElementById('cuidador').value;
+            const fechaCreacion = new Date().toISOString().split('T')[0] + " " + new Date().toLocaleTimeString();
+
+            // Crear objeto con los datos de la mascota
+            const mascota = {
+                nombre,
+                cuidador,
+                fechaCreacion,
+                ultimaModificacion: fechaCreacion
+            };
+
+            // Guardar el objeto en localStorage
+            localStorage.setItem('mascota', JSON.stringify(mascota));
+
+            // Mostrar alerta de éxito y redirigir a la página de listado
+            Swal.fire({
+                title: "¡Mascota Guardada!",
+                text: `La información de ${nombre} ha sido guardada.`,
+                icon: "success"
+            }).then(function() {
+                window.location.href = "SuperAdmin.html";
+                // window.location.href = "prueba1.html";
+            });
+        });
+    </script>
+
+</body>
+</html>

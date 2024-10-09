@@ -1,0 +1,61 @@
+body {
+background-color: coral;
+font-family: Arial, sans-serif;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+margin: 0;
+}
+
+.status-bar {
+position: absolute;
+top: 0;
+width: 100%;
+background-color: teal;
+color: white;
+display: flex;
+justify-content: space-between;
+padding: 10px;
+}
+
+.status-bar .time {
+margin-left: 10px;
+}
+
+.status-bar .icons {
+display: flex;
+align-items: center;
+}
+
+.status-bar .icons span {
+margin-right: 10px;
+}
+
+.menu {
+background-color: teal;
+padding: 20px;
+border-radius: 10px;
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 10px;
+}
+
+.menu-item {
+background-color: white;
+color: teal;
+padding: 20px;
+text-align: center;
+border-radius: 5px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+cursor: pointer;
+}
+.menu-item a{
+text-decoration: none;
+color: teal;
+
+}
+
+.menu-item:hover {
+background-color: lightgray;
+}

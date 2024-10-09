@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear usuario</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="src/js/scripts.js"></script>
+    <link rel="stylesheet" href="src/Stilos/SuperAdminCrear.css">
+
+
+</head>
+<body>
+
+</head>
+
+
+    <div class="sidebar">
+        <a href="index.html"><img src="src/img/logomedimascota-azul.png" alt=""></a>
+
+ 
+        
+            <div class="sidebar">
+                <!-- Menú desplegable para Mascotas -->
+                <div class="menu-item" id="menuMascotas">
+                    <a href="#" onclick="toggleMenu('menuMascotas')">
+                        <span>🐾 Cuidadores</span>
+                        <span class="icon">⯆</span>
+                    </a>
+                    <ul>
+                        <li><a href="SuperAdmin.html">Listado de Mascotas</a></li>
+                        <li><a href="SuperAdminCrear.html">Crear nueva mascota</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Menú desplegable para Cuidadores -->
+                <div class="menu-item" id="menuCuidadores">
+                    <a href="#" onclick="toggleMenu('menuCuidadores')">
+                        <span>👤 Cuidadores</span>
+                        <span class="icon">⯆</span>
+                    </a>
+                    <ul>
+                        <li><a href="Listadecuidadores.html">Listado de Cuidadores</a></li>
+                        <li><a href="CrearCuidador.html">Crear nuevo Cuidador</a></li>
+                    </ul>
+                </div>
+            </div>
+        
+            <script>
+                function toggleMenu(menuId) {
+                    var menu = document.getElementById(menuId);
+                    menu.classList.toggle("active");
+                }
+            </script>
+        
+        <style>
+            .logout a{
+                text-decoration: none;
+                color: white;
+            }
+        </style>
+
+
+        <div class="logout">
+            <span>🔌</span>
+            <a href="index.html"><span>Cerrar Sesión</span></a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="search-bar">
+            <input type="text" placeholder="🔍 Búsqueda rápida...">
+            <button type="submit" id="myButton">Guardar</button>
+
+
+
+
+
+            
+            <div>
+                  <img src="src/img/image.png" height="50" style="border-radius: 50%;" alt="">
+              </div>
+        </div>
+
+        <div class="breadcrumb">
+            <a href="#">Cuidador</a> > <span>Crear Cuidador</span>
+        </div>
+
+        <div class="table-container">
+            <h1>Crear Cuidador</h1>
+            
+        </div>
+
+        <!--
+        
+        -->
+        
+
+        </head>
+
+        <div class="container">
+            <div class="left">
+                <div class="profile-pic"></div>
+                <p>Asignar Foto</p>
+                <h2>NOMBRE</h2>
+                <button >GUARDAR</button>
+            </div>
+            
+            <div class="right">  
+                <h2>Información personal</h2>
+                <form id="cuidadorForm">
+                    <input type="text" id="nombre" placeholder="Nombre" required>
+                    <input type="text" placeholder="documento identidad">
+                    <input type="text" placeholder="correo">
+                    <input type="text"  id="cuidador" placeholder="numero de mascotas" required>
+                    <button type="submit" >Guardar</button>
+                </form>
+                <!-- <form id="animalForm">
+                    <input type="text" id="nombre" placeholder="Nombre" required><br><br>
+                    <input type="text" id="cuidador" placeholder="Cuidador" required><br><br>
+                    <button type="submit">Guardar y Ver en Lista</button>
+                </form> -->
+    
+
+                <div class="exam-list">
+                    <h2>Asignar Mascota</h2>
+
+                    <table id="examenesTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Mascota</th>
+                                <th>Cuidador</th>
+                                <th>Fecha de creacion</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="5">SIN DATOS</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="actions">
+                        <button id="nuevoExamenBtn">Asignar</button>
+                    </div>
+
+<!--Ventana Emergente-->
+<!--Ventana Emergente-->
+<div id="nuevoExamenModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Nuevo Examen</h3>
+        <form id="examenForm">
+            <label for="id">ID :</label><br>
+            <input type="text" id="id" name="id" readonly value="1"><br><br>
+            <label for="examen">Mascota:</label><br>
+            <input type="text" id="examen" name="examen" required><br><br>
+            <label for="resultados">Cuidador:</label><br>
+            <input type="text" id="resultados" name="resultados" required><br><br>
+            <label for="fecha">Fecha (Automática):</label><br>
+            <input type="text" id="fecha" name="fecha" readonly ><br><br>
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
+</div>
+
+<!--Ventana Emergente-->
+<!--Ventana Emergente-->
+
+
+                </div>
+                
+            </div>
+        </div>
+        
+
+        
+
+
+
+<!--
+        
+-->
+
+
+
+
+        
+    </div>
+    <script src="src/js/scripts.js"></script>
+    <script src="CrearCuidador.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Exámenes</title>
+    <style>
+        /* Estilos para el modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Listado de Exámenes</h3>
+    <table id="examenesTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Examen</th>
+                <th>Resultados</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="5">SIN DATOS</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button id="nuevoExamenBtn">NUEVO EXAMEN</button>
+
+    <!-- Modal para el formulario -->
+    <div id="nuevoExamenModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Nuevo Examen</h3>
+            <form id="examenForm">
+                <label for="id">ID (Autogenerado):</label><br>
+                <input type="text" id="id" name="id" readonly><br><br>
+                <label for="examen">Examen:</label><br>
+                <input type="text" id="examen" name="examen" required><br><br>
+                <label for="resultados">Resultados:</label><br>
+                <input type="text" id="resultados" name="resultados" required><br><br>
+                <label for="fecha">Fecha (Automática):</label><br>
+                <input type="text" id="fecha" name="fecha" readonly><br><br>
+                <button type="submit">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Inicializar un contador para el ID automático
+        let idCounter = 1;
+
+        // Obtener elementos del DOM
+        const modal = document.getElementById("nuevoExamenModal");
+        const btn = document.getElementById("nuevoExamenBtn");
+        const span = document.getElementsByClassName("close")[0];
+        const form = document.getElementById('examenForm');
+        const tableBody = document.getElementById('examenesTable').getElementsByTagName('tbody')[0];
+
+        // Función para obtener la fecha actual en formato yyyy-mm-dd hh:mm:ss
+        function obtenerFechaActual() {
+            const fecha = new Date();
+            const yyyy = fecha.getFullYear();
+            const mm = String(fecha.getMonth() + 1).padStart(2, '0'); // Mes con 0 adelante
+            const dd = String(fecha.getDate()).padStart(2, '0'); // Día con 0 adelante
+            const hh = String(fecha.getHours()).padStart(2, '0');
+            const min = String(fecha.getMinutes()).padStart(2, '0');
+            const sec = String(fecha.getSeconds()).padStart(2, '0');
+            return `${yyyy}-${mm}-${dd} ${hh}:${min}:${sec}`;
+        }
+
+        // Abrir el modal al hacer clic en el botón
+        btn.onclick = function() {
+            modal.style.display = "block";
+
+            // Asignar ID automático
+            document.getElementById('id').value = idCounter;
+
+            // Asignar fecha actual automática
+            document.getElementById('fecha').value = obtenerFechaActual();
+        }
+
+        // Cerrar el modal al hacer clic en la 'x'
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Cerrar el modal si se hace clic fuera del contenido del modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Manejar el envío del formulario
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+
+            // Obtener los valores del formulario
+            const id = document.getElementById('id').value;
+            const examen = document.getElementById('examen').value;
+            const resultados = document.getElementById('resultados').value;
+            const fecha = document.getElementById('fecha').value;
+
+            // Crear una nueva fila en la tabla
+            const newRow = tableBody.insertRow();
+            newRow.innerHTML = `
+                <td>${id}</td>
+                <td>${examen}</td>
+                <td>${resultados}</td>
+                <td>${fecha}</td>
+                <td><a href="#">Ver</a> | <a href="#">Editar</a></td>
+            `;
+
+            // Incrementar el contador de ID
+            idCounter++;
+
+            // Limpiar formulario
+            form.reset();
+
+            // Cerrar el modal
+            modal.style.display = "none";
+
+            // Eliminar la fila "SIN DATOS" si existe
+            const sinDatosRow = tableBody.querySelector('tr td[colspan="5"]');
+            if (sinDatosRow) {
+                sinDatosRow.parentElement.remove();
+            }
+        });
+    </script>
+
+</body>
+</html>

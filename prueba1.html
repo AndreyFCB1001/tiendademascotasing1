@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Mascotas</title>
+    <style>
+        /* Estilos básicos para la tabla */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Mascotas</h3>
+    <table id="mascotasTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Mascota</th>
+                <th>Cuidador</th>
+                <th>Fecha de Creación</th>
+                <th>Última Modificación</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se insertarán las filas de mascotas -->
+        </tbody>
+    </table>
+
+    <script>
+        let idCounter = 109; // Contador inicial para IDs
+
+        // Obtener datos de la mascota desde localStorage
+        const mascotaGuardada = localStorage.getItem('mascota');
+
+        if (mascotaGuardada) {
+            const mascota = JSON.parse(mascotaGuardada);
+
+            // Obtener referencia a la tabla
+            const table = document.getElementById('mascotasTable').getElementsByTagName('tbody')[0];
+
+            // Crear una nueva fila y añadirla a la tabla
+            const newRow = table.insertRow();
+
+            newRow.innerHTML = `
+                <td>${idCounter++}</td>
+                <td>${mascota.nombre}</td>
+                <td>${mascota.cuidador}</td>
+                <td>${mascota.fechaCreacion}</td>
+                <td>${mascota.ultimaModificacion}</td>
+            `;
+        }
+    </script>
+<a href="prueba2.html">p2</a>
+</body>
+</html>
